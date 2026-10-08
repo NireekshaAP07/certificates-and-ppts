@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="550" height="687" viewBox="0 0 550 687">
+<defs>
+  <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse">
+    <circle cx="6" cy="6" r="2.4" fill="#111"/>
+  </pattern>
+  <style>
+    .black{fill:#252525}.orange{fill:#f4512a}.white{fill:#fff}
+    .head{font-family:Arial,sans-serif;font-weight:700}
+    .body{font-family:Arial,sans-serif}
+  </style>
+</defs>
+
+<!-- BACKGROUND -->
+<g id="background">
+  <rect width="550" height="687" fill="#fff"/>
+  <path d="M430 0H550V238C508 210 466 180 439 137C412 95 398 48 430 0Z" class="orange"/>
+  <path d="M430 0H550V154C520 133 493 111 476 83C457 52 451 24 430 0Z" fill="url(#dots)"/>
+  <path d="M550 301C502 281 456 291 424 318C389 347 379 391 394 429C408 466 452 490 550 538Z" class="orange"/>
+  <path d="M0 639C22 646 44 660 62 687H0Z" class="orange"/>
+</g>
+
+<!-- UBUNTU MARK + EVENT NAME -->
+<g id="header">
+  <circle cx="91" cy="105" r="35" fill="none" stroke="#f4512a" stroke-width="8"/>
+  <circle cx="91" cy="105" r="15" fill="none" stroke="#f4512a" stroke-width="3"/>
+  <circle cx="93" cy="74" r="13" class="orange"/>
+  <circle cx="43" cy="101" r="13" class="orange"/>
+  <circle cx="92" cy="136" r="13" class="orange"/>
+  <g stroke="#f4512a" stroke-width="2">
+    <path d="M91 91v28M77 98l28 14M77 112l28-14"/>
+  </g>
+  <text x="134" y="96" font-size="29" class="body black">UbuCon</text>
+  <text x="134" y="132" font-size="29" class="body black">India 2026</text>
+</g>
+
+<!-- MAIN TEXT -->
+<g id="headline">
+  <text x="34" y="207" font-size="39" class="head black">What if your next</text>
+  <text x="34" y="251" font-size="39" class="head orange">conference talk</text>
+  <text x="34" y="294" font-size="39" class="head black">inspired <tspan class="orange">hundreds of</tspan></text>
+  <text x="34" y="337" font-size="39" class="head orange">people?</text>
+  <text x="39" y="389" font-size="25" class="head black">The stage is</text>
+  <text x="39" y="423" font-size="25" class="head black">waiting for you!</text>
+</g>
+
+<!-- MICROPHONE AREA -->
+<g id="microphone">
+  <circle cx="455" cy="404" r="112" class="orange"/>
+  <g stroke="#111" stroke-width="5" fill="none">
+    <rect x="389" y="347" width="106" height="174" rx="50" fill="#f4512a"/>
+    <path d="M389 410C389 474 411 505 442 505C473 505 495 474 495 410"/>
+    <path d="M442 505V630"/>
+    <path d="M402 630H482"/>
+    <path d="M382 648H502"/>
+    <path d="M395 648C410 669 474 669 489 648"/>
+  </g>
+  <g stroke="#111" stroke-width="6" stroke-linecap="round">
+    <path d="M405 370h73"/><path d="M401 386h80"/><path d="M399 403h84"/>
+    <path d="M399 420h84"/><path d="M402 437h78"/><path d="M406 454h70"/>
+    <path d="M413 471h56"/>
+  </g>
+  <g fill="#f4512a" stroke="#f4512a">
+    <path d="M361 334l-13 31-31 13 31 13 13 31 13-31 31-13-31-13z"/>
+    <path d="M341 415l-9 22-22 9 22 9 9 22 9-22 22-9-22-9z"/>
+  </g>
+</g>
+
+<!-- DATE / LOCATION -->
+<g id="date-location" class="body">
+  <g id="calendar-icon" stroke="#f4512a" fill="none" stroke-width="2">
+    <rect x="30" y="454" width="24" height="22" rx="3"/>
+    <path d="M30 461h24M36 450v8M48 450v8"/>
+    <path d="M36 466h3M43 466h3M36 471h3M43 471h3"/>
+  </g>
+  <text x="61" y="470" font-size="14" fill="#333">14–15 November 2026</text>
+  <g id="location-icon" stroke="#f4512a" fill="none" stroke-width="2">
+    <path d="M235 454c0-7 5-12 11-12s11 5 11 12c0 9-11 20-11 20s-11-11-11-20z"/>
+    <circle cx="246" cy="454" r="3"/>
+  </g>
+  <text x="263" y="470" font-size="12" fill="#333">BENGALURU</text>
+</g>
+
+<!-- BOTTOM PROCESS ICONS -->
+<g id="process">
+  <!-- circles -->
+  <circle cx="62" cy="530" r="31" class="orange"/>
+  <circle cx="143" cy="530" r="31" class="orange"/>
+  <circle cx="226" cy="530" r="31" class="orange"/>
+  <circle cx="308" cy="530" r="31" class="orange"/>
+
+  <!-- share -->
+  <g id="share-icon" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M52 532l20-13M52 538l20 13"/>
+    <circle cx="48" cy="535" r="7" fill="#fff"/><circle cx="76" cy="515" r="7" fill="#fff"/>
+    <circle cx="76" cy="555" r="7" fill="#fff"/>
+  </g>
+
+  <!-- inspire -->
+  <g id="inspire-icon" fill="#fff">
+    <path d="M143 512c-10 0-16 7-16 16 0 6 3 10 7 14v7h18v-7c4-4 7-8 7-14 0-9-6-16-16-16z"/>
+    <path d="M136 551h14v4h-14z"/>
+    <path d="M137 557h12v4h-12z"/>
+    <circle cx="143" cy="508" r="3"/>
+  </g>
+
+  <!-- collaborate -->
+  <g id="collaborate-icon" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round">
+    <path d="M207 527l12 12 25-24"/>
+    <path d="M204 532l10 10M247 515l-7 7"/>
+    <path d="M216 539l-8 8M236 523l9 9"/>
+  </g>
+
+  <!-- grow -->
+  <g id="grow-icon" fill="#fff" stroke="#fff" stroke-width="2">
+    <path d="M292 545l25-27 8 8-27 25z"/>
+    <path d="M309 516c4-7 11-11 18-11-1 8-5 14-12 18z"/>
+    <path d="M292 541c-7 1-13-2-18-8 7-3 14-2 19 3z"/>
+    <circle cx="306" cy="553" r="5"/>
+  </g>
+
+  <!-- arrows -->
+  <g id="arrows" stroke="#111" stroke-width="3" fill="#111">
+    <path d="M94 530h18l-6-5 3-3 12 8-12 8-3-3 6-5H94z"/>
+    <path d="M176 530h18l-6-5 3-3 12 8-12 8-3-3 6-5h-18z"/>
+    <path d="M259 530h18l-6-5 3-3 12 8-12 8-3-3 6-5h-18z"/>
+  </g>
+
+  <g class="head black" font-size="12">
+    <text x="53" y="581">SHARE</text>
+    <text x="112" y="581">INSPIRE</text>
+    <text x="181" y="581">COLLABORATE</text>
+    <text x="291" y="581">GROW</text>
+  </g>
+</g>
+
+<!-- CTA -->
+<g id="cta">
+  <rect x="43" y="598" width="339" height="60" rx="27" class="orange"/>
+  <text x="64" y="636" font-size="21" class="body white">Submit your proposal now!</text>
+</g>
+</svg>

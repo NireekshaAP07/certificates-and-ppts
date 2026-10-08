@@ -1,0 +1,533 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans); }
+
+  .pm-wrap { padding: 0; overflow: hidden; }
+
+  /* Header */
+  .pm-header {
+    background: linear-gradient(135deg, #1a1040 0%, #0d1f3c 60%, #0a2e1e 100%);
+    padding: 1.5rem 2rem 1.2rem;
+    display: flex; align-items: center; gap: 16px;
+    position: relative; overflow: hidden;
+  }
+  .pm-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(100,70,220,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 30%, rgba(29,158,117,0.15) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .pm-logo {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, #7f77dd, #1d9e75);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: #fff; flex-shrink: 0; position: relative; z-index:1;
+  }
+  .pm-title { position: relative; z-index: 1; }
+  .pm-title h1 { font-size: 22px; font-weight: 500; color: #fff; letter-spacing: -0.3px; }
+  .pm-title p { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 2px; }
+
+  .pm-badge {
+    margin-left: auto; position: relative; z-index: 1;
+    background: rgba(29,158,117,0.2); border: 0.5px solid rgba(29,158,117,0.5);
+    color: #5dcaa5; font-size: 12px; padding: 4px 12px;
+    border-radius: 20px; font-weight: 500;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .live-dot {
+    width: 7px; height: 7px; border-radius: 50%; background: #1d9e75;
+    animation: pulse 1.4s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.75)} }
+
+  /* Tabs */
+  .pm-tabs {
+    display: flex; border-bottom: 0.5px solid var(--color-border-tertiary);
+    background: var(--color-background-primary);
+    padding: 0 1.5rem;
+  }
+  .pm-tab {
+    padding: 12px 18px; font-size: 14px; cursor: pointer;
+    color: var(--color-text-secondary); border-bottom: 2px solid transparent;
+    margin-bottom: -1px; transition: all 0.2s; display: flex; align-items: center; gap: 7px;
+    background: none; border-top: none; border-left: none; border-right: none;
+    font-family: var(--font-sans);
+  }
+  .pm-tab.active { color: #7f77dd; border-bottom-color: #7f77dd; font-weight: 500; }
+  .pm-tab:hover:not(.active) { color: var(--color-text-primary); }
+
+  /* Main canvas for animation */
+  .pm-canvas-wrap { position: relative; background: #0a0f1e; overflow: hidden; height: 340px; }
+  canvas#classroom { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .pm-canvas-info {
+    position: absolute; bottom: 12px; left: 12px; right: 12px;
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+  .pm-chip {
+    background: rgba(255,255,255,0.07); backdrop-filter: blur(4px);
+    border: 0.5px solid rgba(255,255,255,0.12);
+    border-radius: 20px; padding: 4px 10px; font-size: 12px; color: rgba(255,255,255,0.65);
+    display: flex; align-items: center; gap: 5px;
+  }
+  .pm-chip-dot { width: 7px; height: 7px; border-radius: 50%; }
+
+  /* Panels */
+  .pm-panels { padding: 1.25rem 1.5rem; display: none; }
+  .pm-panels.visible { display: block; }
+
+  /* Stats row */
+  .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 1.25rem; }
+  .stat-card {
+    background: var(--color-background-secondary); border-radius: var(--border-radius-md);
+    padding: 0.85rem 1rem; text-align: center;
+  }
+  .stat-num { font-size: 22px; font-weight: 500; }
+  .stat-lbl { font-size: 12px; color: var(--color-text-secondary); margin-top: 3px; }
+  .stat-num.purple { color: #7f77dd; }
+  .stat-num.teal { color: #1d9e75; }
+  .stat-num.amber { color: #ba7517; }
+  .stat-num.blue { color: #378add; }
+
+  /* Groups */
+  .groups-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .group-card {
+    background: var(--color-background-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg); padding: 1rem;
+  }
+  .group-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .group-icon {
+    width: 30px; height: 30px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; font-size: 14px;
+  }
+  .group-title { font-size: 13px; font-weight: 500; }
+  .group-sub { font-size: 11px; color: var(--color-text-secondary); margin-top: 1px; }
+  .group-members { display: flex; flex-direction: column; gap: 5px; }
+  .member-row { display: flex; align-items: center; gap: 7px; font-size: 12px; color: var(--color-text-secondary); }
+  .m-avatar { width: 22px; height: 22px; border-radius: 50%; font-size: 9px; font-weight: 500;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .match-badge { margin-left: auto; font-size: 10px; padding: 1px 7px; border-radius: 10px; }
+  .match-high { background: #e1f5ee; color: #0f6e56; }
+  .match-med { background: #faeeda; color: #854f0b; }
+  
+  /* Progress panel */
+  .progress-list { display: flex; flex-direction: column; gap: 10px; }
+  .prog-row { display: flex; align-items: center; gap: 10px; }
+  .prog-name { width: 90px; font-size: 13px; color: var(--color-text-secondary); }
+  .prog-bar-wrap { flex: 1; height: 6px; background: var(--color-background-secondary); border-radius: 3px; overflow: hidden; }
+  .prog-bar { height: 100%; border-radius: 3px; transition: width 1s ease; }
+  .prog-pct { width: 35px; font-size: 13px; font-weight: 500; text-align: right; }
+  
+  .section-title { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* Teacher panel */
+  .teacher-card {
+    background: linear-gradient(135deg, #1a1040 0%, #0d1f3c 100%);
+    border-radius: var(--border-radius-lg); padding: 1.25rem;
+    margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem;
+  }
+  .teacher-av {
+    width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, #7f77dd, #1d9e75);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 500; color: #fff;
+  }
+  .teacher-info h3 { font-size: 15px; font-weight: 500; color: #fff; }
+  .teacher-info p { font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+  .insights-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .insight-card {
+    background: var(--color-background-secondary); border-radius: var(--border-radius-md);
+    padding: 0.9rem 1rem;
+  }
+  .insight-card .i-label { font-size: 12px; color: var(--color-text-secondary); margin-bottom: 6px; display: flex; align-items: center; gap: 5px; }
+  .insight-card .i-val { font-size: 18px; font-weight: 500; }
+  .teal-text { color: #1d9e75; }
+  .purple-text { color: #7f77dd; }
+  .amber-text { color: #ba7517; }
+</style>
+
+<h2 class="sr-only">PeerMatch AI — AI-powered peer learning platform showing students and teacher collaborating in real time</h2>
+
+<div class="pm-wrap">
+  <div class="pm-header">
+    <div class="pm-logo"><i class="ti ti-users" aria-hidden="true"></i></div>
+    <div class="pm-title">
+      <h1>PeerMatch AI</h1>
+      <p>AI-driven collaborative learning platform</p>
+    </div>
+    <div class="pm-badge">
+      <span class="live-dot"></span>
+      Session live
+    </div>
+  </div>
+
+  <div class="pm-tabs">
+    <button class="pm-tab active" onclick="switchTab('classroom')">
+      <i class="ti ti-school" aria-hidden="true"></i> Classroom
+    </button>
+    <button class="pm-tab" onclick="switchTab('groups')">
+      <i class="ti ti-layout-grid" aria-hidden="true"></i> Study groups
+    </button>
+    <button class="pm-tab" onclick="switchTab('progress')">
+      <i class="ti ti-chart-bar" aria-hidden="true"></i> Progress
+    </button>
+    <button class="pm-tab" onclick="switchTab('teacher')">
+      <i class="ti ti-user-circle" aria-hidden="true"></i> Teacher view
+    </button>
+  </div>
+
+  <!-- Classroom animation -->
+  <div class="pm-canvas-wrap" id="tab-classroom">
+    <canvas id="classroom"></canvas>
+    <div class="pm-canvas-info">
+      <div class="pm-chip"><span class="pm-chip-dot" style="background:#7f77dd"></span> Mentor</div>
+      <div class="pm-chip"><span class="pm-chip-dot" style="background:#1d9e75"></span> Learner</div>
+      <div class="pm-chip"><span class="pm-chip-dot" style="background:#fac775"></span> Teacher</div>
+      <div class="pm-chip"><i class="ti ti-arrows-exchange" aria-hidden="true" style="font-size:11px;color:rgba(255,255,255,0.5)"></i> AI-matched connections</div>
+    </div>
+  </div>
+
+  <!-- Study groups tab -->
+  <div class="pm-panels" id="tab-groups">
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-num purple">32</div><div class="stat-lbl">Students</div></div>
+      <div class="stat-card"><div class="stat-num teal">8</div><div class="stat-lbl">Groups</div></div>
+      <div class="stat-card"><div class="stat-num amber">94%</div><div class="stat-lbl">Match accuracy</div></div>
+      <div class="stat-card"><div class="stat-num blue">12</div><div class="stat-lbl">Mentors active</div></div>
+    </div>
+    <div class="section-title">AI-matched groups</div>
+    <div class="groups-grid">
+      <div class="group-card">
+        <div class="group-header">
+          <div class="group-icon" style="background:#EEEDFE"><i class="ti ti-math" style="color:#534AB7;font-size:15px" aria-hidden="true"></i></div>
+          <div><div class="group-title">Mathematics</div><div class="group-sub">Algebra · 4 students</div></div>
+        </div>
+        <div class="group-members">
+          <div class="member-row"><div class="m-avatar" style="background:#EEEDFE;color:#534AB7">PR</div>Priya R.<span class="match-badge match-high">Mentor</span></div>
+          <div class="member-row"><div class="m-avatar" style="background:#E1F5EE;color:#0F6E56">RM</div>Ramesh<span class="match-badge match-med">Learner</span></div>
+          <div class="member-row"><div class="m-avatar" style="background:#E6F1FB;color:#185FA5">AK</div>Ankit<span class="match-badge match-med">Learner</span></div>
+        </div>
+      </div>
+      <div class="group-card">
+        <div class="group-header">
+          <div class="group-icon" style="background:#E1F5EE"><i class="ti ti-flask" style="color:#0F6E56;font-size:15px" aria-hidden="true"></i></div>
+          <div><div class="group-title">Science</div><div class="group-sub">Physics · 3 students</div></div>
+        </div>
+        <div class="group-members">
+          <div class="member-row"><div class="m-avatar" style="background:#EEEDFE;color:#534AB7">NK</div>Nidhi K.<span class="match-badge match-high">Mentor</span></div>
+          <div class="member-row"><div class="m-avatar" style="background:#FAEEDA;color:#854F0B">SR</div>Suresh<span class="match-badge match-med">Learner</span></div>
+          <div class="member-row"><div class="m-avatar" style="background:#E1F5EE;color:#0F6E56">DM</div>Divya<span class="match-badge match-med">Learner</span></div>
+        </div>
+      </div>
+      <div class="group-card">
+        <div class="group-header">
+          <div class="group-icon" style="background:#E6F1FB"><i class="ti ti-code" style="color:#185FA5;font-size:15px" aria-hidden="true"></i></div>
+          <div><div class="group-title">Coding</div><div class="group-sub">Basics · 4 students</div></div>
+        </div>
+        <div class="group-members">
+          <div class="member-row"><div class="m-avatar" style="background:#EEEDFE;color:#534AB7">VG</div>Vijay G.<span class="match-badge match-high">Mentor</span></div>
+          <div class="member-row"><div class="m-avatar" style="background:#E1F5EE;color:#0F6E56">LM</div>Lata M.<span class="match-badge match-med">Learner</span></div>
+          <div class="member-row"><div class="m-avatar" style="background:#FAEEDA;color:#854F0B">KT</div>Kiran T.<span class="match-badge match-med">Learner</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress tab -->
+  <div class="pm-panels" id="tab-progress">
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-num teal">+28%</div><div class="stat-lbl">Avg improvement</div></div>
+      <div class="stat-card"><div class="stat-num purple">76%</div><div class="stat-lbl">Gaps closed</div></div>
+      <div class="stat-card"><div class="stat-num amber">4.3</div><div class="stat-lbl">Engagement score</div></div>
+      <div class="stat-card"><div class="stat-num blue">89%</div><div class="stat-lbl">Attendance</div></div>
+    </div>
+    <div class="section-title">Student progress — this week</div>
+    <div class="progress-list" id="prog-list"></div>
+  </div>
+
+  <!-- Teacher view -->
+  <div class="pm-panels" id="tab-teacher">
+    <div class="teacher-card">
+      <div class="teacher-av">MS</div>
+      <div class="teacher-info">
+        <h3>Mr. Sharma</h3>
+        <p>Government School · Class 8 · 50 students</p>
+      </div>
+    </div>
+    <div class="section-title">AI classroom insights</div>
+    <div class="insights-grid">
+      <div class="insight-card">
+        <div class="i-label"><i class="ti ti-bolt" style="font-size:14px;color:#1d9e75" aria-hidden="true"></i> Weak area detected</div>
+        <div class="i-val teal-text">Algebra</div>
+        <div style="font-size:12px;color:var(--color-text-secondary);margin-top:4px">14 students struggling · peer group suggested</div>
+      </div>
+      <div class="insight-card">
+        <div class="i-label"><i class="ti ti-trophy" style="font-size:14px;color:#7f77dd" aria-hidden="true"></i> Top mentors today</div>
+        <div class="i-val purple-text">Priya, Vijay</div>
+        <div style="font-size:12px;color:var(--color-text-secondary);margin-top:4px">Helped 6 peers · badges awarded</div>
+      </div>
+      <div class="insight-card">
+        <div class="i-label"><i class="ti ti-chart-line" style="font-size:14px;color:#ba7517" aria-hidden="true"></i> Most improved</div>
+        <div class="i-val amber-text">Ramesh</div>
+        <div style="font-size:12px;color:var(--color-text-secondary);margin-top:4px">+42% in Math after peer session</div>
+      </div>
+      <div class="insight-card">
+        <div class="i-label"><i class="ti ti-users" style="font-size:14px;color:#378add" aria-hidden="true"></i> Active now</div>
+        <div class="i-val" style="color:#378add">8 groups</div>
+        <div style="font-size:12px;color:var(--color-text-secondary);margin-top:4px">32 students in collaborative sessions</div>
+      </div>
+    </div>
+    <div style="margin-top:1rem;padding:0.9rem 1rem;background:var(--color-background-secondary);border-radius:var(--border-radius-md);font-size:13px;color:var(--color-text-secondary);display:flex;align-items:center;gap:8px;">
+      <i class="ti ti-sparkles" style="font-size:16px;color:#7f77dd" aria-hidden="true"></i>
+      AI recommendation: Merge the two algebra groups — compatibility score 96%. Ramesh and Nidhi pairing shows strongest improvement signal.
+    </div>
+  </div>
+</div>
+
+<script>
+const tabs = ['classroom','groups','progress','teacher'];
+
+function switchTab(t) {
+  tabs.forEach(id => {
+    const canv = document.getElementById('tab-' + id);
+    if (canv) {
+      if (id === 'classroom') {
+        canv.style.display = t === 'classroom' ? 'block' : 'none';
+      } else {
+        canv.classList.toggle('visible', id === t);
+      }
+    }
+    document.querySelectorAll('.pm-tab').forEach((el, i) => {
+      el.classList.toggle('active', tabs[i] === t);
+    });
+  });
+}
+
+// Progress data
+const students = [
+  { name: 'Ramesh', pct: 78, color: '#1d9e75' },
+  { name: 'Priya', pct: 95, color: '#7f77dd' },
+  { name: 'Ankit', pct: 62, color: '#378add' },
+  { name: 'Divya', pct: 84, color: '#1d9e75' },
+  { name: 'Suresh', pct: 57, color: '#ba7517' },
+  { name: 'Nidhi', pct: 91, color: '#7f77dd' },
+];
+const list = document.getElementById('prog-list');
+students.forEach(s => {
+  list.innerHTML += `<div class="prog-row">
+    <div class="prog-name">${s.name}</div>
+    <div class="prog-bar-wrap"><div class="prog-bar" style="width:${s.pct}%;background:${s.color}"></div></div>
+    <div class="prog-pct">${s.pct}%</div>
+  </div>`;
+});
+
+// Canvas animation
+const canvas = document.getElementById('classroom');
+const ctx = canvas.getContext('2d');
+let W, H, nodes, particles, connections, animId;
+
+function resize() {
+  const wrap = canvas.parentElement;
+  W = canvas.width = wrap.offsetWidth;
+  H = canvas.height = wrap.offsetHeight;
+  init();
+}
+
+const COLORS = {
+  mentor: { fill: '#7f77dd', glow: 'rgba(127,119,221,0.25)' },
+  learner: { fill: '#1d9e75', glow: 'rgba(29,158,117,0.2)' },
+  teacher: { fill: '#fac775', glow: 'rgba(250,199,117,0.3)' }
+};
+
+const NAMES = {
+  mentor: ['Priya','Vijay','Nidhi','Arun','Meena'],
+  learner: ['Ramesh','Ankit','Suresh','Divya','Kiran','Lata','Mohan','Geeta','Sanjay'],
+  teacher: ['Mr. Sharma']
+};
+
+function init() {
+  nodes = [];
+  particles = [];
+  connections = [];
+
+  const cx = W / 2, cy = H / 2;
+
+  // Teacher at center
+  nodes.push({ x: cx, y: cy, vx: 0, vy: 0, type: 'teacher', r: 22, name: 'Mr. Sharma', label: 'MS', angle: 0, orbitR: 0, orbitSpeed: 0, pulse: 0 });
+
+  // Mentors on inner ring
+  for (let i = 0; i < 5; i++) {
+    const a = (i / 5) * Math.PI * 2;
+    const r = Math.min(W, H) * 0.28;
+    nodes.push({
+      x: cx + Math.cos(a) * r,
+      y: cy + Math.sin(a) * r,
+      vx: 0, vy: 0, type: 'mentor', r: 16,
+      name: NAMES.mentor[i], label: NAMES.mentor[i].slice(0,2).toUpperCase(),
+      angle: a, orbitR: r, orbitSpeed: 0.003 + i * 0.0004,
+      baseAngle: a, pulse: Math.random() * Math.PI * 2
+    });
+  }
+
+  // Learners on outer ring
+  for (let i = 0; i < 9; i++) {
+    const a = (i / 9) * Math.PI * 2 + 0.3;
+    const r = Math.min(W, H) * 0.44;
+    nodes.push({
+      x: cx + Math.cos(a) * r,
+      y: cy + Math.sin(a) * r,
+      vx: 0, vy: 0, type: 'learner', r: 13,
+      name: NAMES.learner[i], label: NAMES.learner[i].slice(0,2).toUpperCase(),
+      angle: a, orbitR: r, orbitSpeed: 0.002 + i * 0.0002,
+      baseAngle: a, pulse: Math.random() * Math.PI * 2
+    });
+  }
+
+  // Connections: each learner to nearest mentor
+  const mentors = nodes.filter(n => n.type === 'mentor');
+  const learners = nodes.filter(n => n.type === 'learner');
+  const teacher = nodes[0];
+
+  // Teacher to all mentors
+  mentors.forEach(m => connections.push({ a: teacher, b: m, strength: 1, color: '#fac775' }));
+
+  // Mentors to 1-2 learners each
+  learners.forEach((l, li) => {
+    const mi = li % mentors.length;
+    connections.push({ a: mentors[mi], b: l, strength: 0.7, color: '#7f77dd', particles: [] });
+  });
+
+  // Spawn travelling particles along connections
+  for (let i = 0; i < 18; i++) {
+    const conn = connections[Math.floor(Math.random() * connections.length)];
+    particles.push({
+      conn, t: Math.random(),
+      speed: 0.004 + Math.random() * 0.004,
+      dir: Math.random() < 0.5 ? 1 : -1,
+      r: 2.5 + Math.random() * 1.5,
+      alpha: 0.7 + Math.random() * 0.3
+    });
+  }
+}
+
+function draw(ts) {
+  ctx.clearRect(0, 0, W, H);
+
+  // Subtle background grid
+  ctx.strokeStyle = 'rgba(127,119,221,0.04)';
+  ctx.lineWidth = 0.5;
+  const gs = 40;
+  for (let x = 0; x < W; x += gs) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+  for (let y = 0; y < H; y += gs) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+
+  const now = ts * 0.001;
+  const cx = W / 2, cy = H / 2;
+
+  // Update node positions (orbit)
+  nodes.forEach(n => {
+    if (n.type !== 'teacher') {
+      n.angle = n.baseAngle + now * n.orbitSpeed * 60;
+      n.x = cx + Math.cos(n.angle) * n.orbitR;
+      n.y = cy + Math.sin(n.angle) * n.orbitR;
+    }
+  });
+
+  // Draw connections
+  connections.forEach(c => {
+    const ax = c.a.x, ay = c.a.y, bx = c.b.x, by = c.b.y;
+    const mx = (ax + bx) / 2, my = (ay + by) / 2 - 20;
+    ctx.beginPath();
+    ctx.moveTo(ax, ay);
+    ctx.quadraticCurveTo(mx, my, bx, by);
+    ctx.strokeStyle = c.color.replace(')', `,${c.strength * 0.18})`).replace('rgb', 'rgba').replace('#', '');
+    if (c.color.startsWith('#')) {
+      const r = parseInt(c.color.slice(1,3),16), g = parseInt(c.color.slice(3,5),16), b = parseInt(c.color.slice(5,7),16);
+      ctx.strokeStyle = `rgba(${r},${g},${b},${c.strength * 0.22})`;
+    }
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  });
+
+  // Update & draw particles
+  particles.forEach(p => {
+    p.t += p.speed * p.dir;
+    if (p.t > 1) p.t = 0;
+    if (p.t < 0) p.t = 1;
+
+    const c = p.conn;
+    const ax = c.a.x, ay = c.a.y, bx = c.b.x, by = c.b.y;
+    const mx = (ax + bx) / 2, my = (ay + by) / 2 - 20;
+    const t = p.t;
+    const it = 1 - t;
+    const px = it*it*ax + 2*it*t*mx + t*t*bx;
+    const py = it*it*ay + 2*it*t*my + t*t*by;
+
+    ctx.beginPath();
+    ctx.arc(px, py, p.r, 0, Math.PI * 2);
+    let col = '#7f77dd';
+    if (c.color === '#fac775') col = '#fac775';
+    const rr = parseInt(col.slice(1,3),16), gg = parseInt(col.slice(3,5),16), bb = parseInt(col.slice(5,7),16);
+    ctx.fillStyle = `rgba(${rr},${gg},${bb},${p.alpha * 0.85})`;
+    ctx.fill();
+  });
+
+  // Draw nodes
+  nodes.forEach(n => {
+    const pulse = Math.sin(now * 1.5 + n.pulse) * 0.5 + 0.5;
+    const col = COLORS[n.type];
+
+    // Glow ring
+    if (n.type === 'teacher') {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r + 10 + pulse * 5, 0, Math.PI * 2);
+      ctx.fillStyle = col.glow;
+      ctx.fill();
+    }
+
+    // Shadow glow
+    ctx.shadowColor = col.fill;
+    ctx.shadowBlur = 12;
+
+    // Circle
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+    ctx.fillStyle = col.fill;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    // Border
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(255,255,255,0.25)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    // Label initials
+    ctx.fillStyle = '#fff';
+    ctx.font = `${n.type === 'teacher' ? '600 11px' : '500 9px'} var(--font-sans, sans-serif)`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(n.label, n.x, n.y);
+
+    // Name below
+    if (n.type !== 'learner') {
+      ctx.fillStyle = 'rgba(255,255,255,0.5)';
+      ctx.font = '9px var(--font-sans, sans-serif)';
+      ctx.fillText(n.name, n.x, n.y + n.r + 10);
+    }
+  });
+
+  animId = requestAnimationFrame(draw);
+}
+
+window.addEventListener('resize', () => {
+  cancelAnimationFrame(animId);
+  resize();
+  animId = requestAnimationFrame(draw);
+});
+
+resize();
+animId = requestAnimationFrame(draw);
+</script>

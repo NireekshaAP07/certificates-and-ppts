@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+ <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20260828-05-5fe3063","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YAHO2-t-jNE,0","Arial":"YAGyDvJ_4Ts,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Canva Sans":"YAFLd8sKbwc,2","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAHO2VMiyZo,0","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAEul-FRQw4,0","Georgia":"YAGzXkO0pEM,0","Helvetica Neue":"YAFcf6CtJfI,0","Impact":"YAFcfnjI7Vk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YAHO2a5g66Q,0","JetBrains Mono":"YAFdJksXcAk,0","Libre Baskerville":"YACgEUFdPdA,0","Manrope":"YAHO2b2feC4,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YADLjI9qxTA,0","Nunito":"YACgEX8C5Gg,0","Oleo Script":"YACgEQQ14jI,0","Phantom Sans":"YAHO2E8Pb88,0","Playfair Display":"YACgEYmuCJE,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YADWjpfPmdk,0","Raleway":"YACgEVg3xZg,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Spectral":"YAHO2rVUHIM,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Ubuntu":"YACgERDU--Q,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YADlN8CFZ8Q,0","ui-sans-serif":"YACkoN-xg4g,0"}}');</script><script src="/_sdk/50d846425a1e5082.telemetry_sdk.js" integrity="sha512-Otbex+ztlVbcEGql0rXGd/3E3ee/hqAntg6DeuUEMG6pIPbXGOSvZbFZVzknAXi1tH/itQ+ijEhOTr2aWj6CXg=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hearth &amp; Bean Coffee</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/b3bf9e8ac58e6ad6.data_sdk.js" integrity="sha512-otc1u9NYq9Ms5Jt//7vmhrrqR5CLPr8Jdgs6741gqniClfLMcfmC+jK/cKuQdhLv6G0esJ/FzaMS9tv0T/vj/Q=="></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root { --cream:#fcf6ea; --paper:#fffdf8; --espresso:#3b2419; --caramel:#a95d34; --sage:#6f8064; --peach:#df9c7c; --line:#e7d8c2; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:"DM Sans",sans-serif; color:var(--espresso); background:var(--cream); }
+    button, input, select { font:inherit; }
+    button { cursor:pointer; }
+    button:focus-visible, input:focus-visible, select:focus-visible { outline:4px solid #d79569; outline-offset:3px; }
+    .paper { background-color:var(--cream); background-image:radial-gradient(#dbc7aa66 1px,transparent 1px); background-size:18px 18px; }
+    .serif { font-family:"Fraunces",serif; }
+    .view { display:none; animation:enter .35s ease both; }
+    .view.active { display:block; }
+    @keyframes enter { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    .navlink.active { color:var(--caramel); text-decoration:underline; text-underline-offset:7px; }
+    .product-card { transition:transform .2s ease, box-shadow .2s ease; }
+    .product-card:hover { transform:translateY(-4px); box-shadow:0 18px 35px #5836231c; }
+    .toast { transform:translateY(130%); transition:transform .3s ease; }
+    .toast.show { transform:translateY(0); }
+    .quiz-choice.selected { border-color:var(--caramel); background:#f7e6d5; box-shadow:0 0 0 3px #df9c7c55; }
+    .wishlist.active { color:#b94f55; background:#f9e0df; }
+    @media (max-width: 768px) { .desktop-nav { display:none; } .mobile-menu.open { display:block; } }
+    @media (min-width: 769px) { .mobile-menu { display:none!important; } }
+  </style>
+  <script src="/_sdk/a6de989e8af05ea5.resizing_sdk.js" type="text/javascript" integrity="sha512-cceAQMIleYr/3eg7o5WzN46w0HpgI1sxi+5kDUb7CmTjHEpgBtINDxtOpnNeUtujjui8NG0OSDgUMl0/E2lT2A=="></script>
+ </head>
+ <body data-template-id="__page-root" class="w-full paper">
+  <header data-template-id="site-header" class="canva-header sticky top-0 z-40 border-b border-[#e7d8c2] bg-[#fffdf8ee] backdrop-blur">
+   <nav aria-label="Main navigation" class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 md:px-8"><button type="button" onclick="showView('home')" class="flex items-center gap-2 text-left"> <span class="rounded-full bg-[#a95d34] p-2 text-white"><i data-lucide="coffee" class="h-5 w-5"></i></span> <span data-template-id="brand-name" class="canva-text serif text-xl font-bold"></span> </button>
+    <div class="desktop-nav flex items-center gap-7 font-semibold"><button class="navlink" data-nav="home" onclick="showView('home')">Home</button> <button class="navlink" data-nav="shop" onclick="showView('shop')">Shop</button> <button class="navlink" data-nav="finder" onclick="showView('finder')">Coffee Finder</button> <button class="navlink" data-nav="about" onclick="showView('about')">About</button>
+    </div>
+    <div class="flex items-center gap-2"><button type="button" onclick="showView('shop'); setTimeout(()=>document.getElementById('shop-search').focus(),100)" class="rounded-xl px-3 py-3 font-semibold hover:bg-[#f3e7d5]"><span class="hidden sm:inline">Search</span><i data-lucide="search" class="inline h-5 w-5 sm:ml-2"></i></button> <span class="hidden rounded-xl px-3 py-3 font-semibold lg:inline">Account</span> <button type="button" onclick="showView('cart')" class="rounded-xl bg-[#3b2419] px-4 py-3 font-bold text-white"><i data-lucide="shopping-bag" class="mr-1 inline h-5 w-5"></i> Cart <span id="cart-count" aria-live="polite">0</span></button> <button id="menu-button" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()" class="rounded-xl p-3 md:hidden"><i data-lucide="menu" class="h-6 w-6"></i></button>
+    </div>
+   </nav>
+   <div id="mobile-menu" class="mobile-menu hidden border-t border-[#e7d8c2] bg-[#fffdf8] px-5 py-4">
+    <div class="grid gap-2 text-lg font-semibold"><button class="rounded-lg p-3 text-left hover:bg-[#f3e7d5]" onclick="showView('home');toggleMenu()">Home</button> <button class="rounded-lg p-3 text-left hover:bg-[#f3e7d5]" onclick="showView('shop');toggleMenu()">Shop</button> <button class="rounded-lg p-3 text-left hover:bg-[#f3e7d5]" onclick="showView('finder');toggleMenu()">Coffee Finder</button> <button class="rounded-lg p-3 text-left hover:bg-[#f3e7d5]" onclick="showView('about');toggleMenu()">About</button>
+    </div>
+   </div>
+  </header>
+  <main>
+   <section id="home" class="view active">
+    <section class="mx-auto grid max-w-7xl gap-8 px-4 py-10 md:grid-cols-2 md:items-center md:px-8 md:py-16">
+     <div class="order-2 md:order-1">
+      <p data-template-id="hero-kicker" class="canva-text mb-4 font-bold uppercase tracking-[.14em]"></p>
+      <h1 data-template-id="hero-title" class="canva-text serif mb-6 text-5xl font-bold leading-[1.04] md:text-7xl"></h1>
+      <p data-template-id="hero-copy" class="canva-text mb-8 max-w-xl text-xl leading-relaxed"></p>
+      <div class="flex flex-col gap-3 sm:flex-row"><button data-template-id="hero-shop-button" type="button" onclick="showView('shop')" class="canva-button rounded-2xl px-7 py-4 text-lg font-bold shadow-sm"></button> <button data-template-id="hero-finder-button" type="button" onclick="showView('finder')" class="canva-button rounded-2xl px-7 py-4 text-lg font-bold"></button>
+      </div>
+      <p class="mt-7 flex items-center gap-2 font-semibold text-[#66755a]"><i data-lucide="leaf" class="h-5 w-5"></i> Carefully roasted in small, comforting batches.</p>
+     </div>
+     <div class="order-1 overflow-hidden rounded-[2.4rem] border-8 border-[#fffdf8] shadow-xl md:order-2"><img data-template-id="hero-image" loading="lazy" class="canva-image h-[360px] w-full object-cover md:h-[510px]">
+     </div>
+    </section>
+    <section class="mx-auto max-w-7xl px-4 py-12 md:px-8">
+     <div class="mb-7 flex flex-wrap items-end justify-between gap-3">
+      <div>
+       <p class="font-bold uppercase tracking-[.14em] text-[#a95d34]">Our favourites</p>
+       <h2 data-template-id="featured-title" class="canva-text serif text-4xl font-bold"></h2>
+      </div><button onclick="showView('shop')" class="rounded-xl border-2 border-[#3b2419] px-5 py-3 text-lg font-bold">View all coffee</button>
+     </div>
+     <div id="featured-grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4"></div>
+    </section>
+    <section data-template-id="category-section" class="canva-section bg-[#eee2d0] py-14">
+     <div class="mx-auto max-w-7xl px-4 md:px-8">
+      <h2 data-template-id="category-title" class="canva-text serif mb-8 text-4xl font-bold"></h2>
+      <div id="category-grid" class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5"></div>
+     </div>
+    </section>
+    <section class="mx-auto max-w-7xl px-4 py-14 md:px-8">
+     <div data-template-id="finder-banner" class="canva-banner relative overflow-hidden rounded-[2.5rem] p-8 md:p-12">
+      <div class="absolute right-7 top-5 text-7xl opacity-30">
+       ☕
+      </div>
+      <p data-template-id="finder-kicker" class="canva-text font-bold uppercase tracking-[.14em]"></p>
+      <h2 data-template-id="finder-title" class="canva-text serif mt-2 max-w-2xl text-4xl font-bold"></h2>
+      <p data-template-id="finder-copy" class="canva-text my-4 max-w-xl text-xl"></p><button data-template-id="finder-button" onclick="showView('finder')" class="canva-button rounded-2xl px-7 py-4 text-lg font-bold"></button>
+     </div>
+    </section>
+    <section class="mx-auto max-w-7xl px-4 py-10 md:px-8">
+     <h2 data-template-id="bestseller-title" class="canva-text serif mb-8 text-4xl font-bold"></h2>
+     <div id="bestseller-grid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+    <section class="mx-auto grid max-w-7xl gap-8 px-4 py-14 md:grid-cols-2 md:px-8"><img data-template-id="story-image" loading="lazy" class="canva-image h-full min-h-[330px] w-full rounded-[2rem] object-cover">
+     <div class="flex flex-col justify-center">
+      <p class="font-bold uppercase tracking-[.14em] text-[#a95d34]">Our story</p>
+      <h2 data-template-id="story-title" class="canva-text serif my-4 text-4xl font-bold"></h2>
+      <p data-template-id="story-copy" class="canva-text text-xl leading-relaxed"></p><button onclick="showView('about')" class="mt-7 w-fit rounded-xl border-2 border-[#3b2419] px-6 py-3 text-lg font-bold">Meet Hearth &amp; Bean</button>
+     </div>
+    </section>
+    <section data-template-id="reviews-section" class="canva-section bg-[#f1e7d8] py-14">
+     <div class="mx-auto max-w-7xl px-4 md:px-8">
+      <h2 data-template-id="reviews-title" class="canva-text serif mb-8 text-4xl font-bold"></h2>
+      <div class="grid gap-5 md:grid-cols-3">
+       <article class="rounded-3xl bg-[#fffdf8] p-6 shadow-sm">
+        <p class="text-xl text-[#a95d34]">★★★★★</p>
+        <p class="my-4 text-lg leading-relaxed">“The gentlest, loveliest morning ritual. Everything is clearly labelled, too.”</p>
+        <p class="font-bold">— Margaret L.</p>
+       </article>
+       <article class="rounded-3xl bg-[#fffdf8] p-6 shadow-sm">
+        <p class="text-xl text-[#a95d34]">★★★★★</p>
+        <p class="my-4 text-lg leading-relaxed">“The maple blend is smooth and rich — my whole kitchen smells wonderful.”</p>
+        <p class="font-bold">— Arun P.</p>
+       </article>
+       <article class="rounded-3xl bg-[#fffdf8] p-6 shadow-sm">
+        <p class="text-xl text-[#a95d34]">★★★★★</p>
+        <p class="my-4 text-lg leading-relaxed">“Finally, a coffee shop that makes choosing a good cup feel easy.”</p>
+        <p class="font-bold">— Elena R.</p>
+       </article>
+      </div>
+     </div>
+    </section>
+    <section data-template-id="newsletter-section" class="canva-section bg-[#66755a] py-14 text-white">
+     <div class="mx-auto max-w-3xl px-4 text-center md:px-8">
+      <h2 data-template-id="newsletter-title" class="canva-text serif text-4xl font-bold"></h2>
+      <p data-template-id="newsletter-copy" class="canva-text mx-auto my-4 max-w-xl text-xl"></p>
+      <form id="newsletter-form" class="mx-auto mt-7 flex max-w-xl flex-col gap-3 sm:flex-row"><label class="sr-only" for="newsletter-email">Email address</label> <input id="newsletter-email" type="email" required placeholder="Your email address" class="min-h-[58px] flex-1 rounded-2xl border-2 border-white bg-white px-5 text-lg text-[#3b2419]"> <button data-template-id="subscribe-button" id="subscribe-button" type="submit" class="canva-button min-h-[58px] rounded-2xl px-7 text-lg font-bold"></button>
+      </form>
+      <p id="newsletter-status" aria-live="polite" class="mt-4 font-semibold"></p>
+     </div>
+    </section>
+   </section>
+   <section id="shop" class="view mx-auto max-w-7xl px-4 py-10 md:px-8">
+    <p class="font-bold uppercase tracking-[.14em] text-[#a95d34]">Take your time</p>
+    <h1 data-template-id="shop-title" class="canva-text serif mt-2 text-5xl font-bold"></h1>
+    <div class="my-7 rounded-2xl border-2 border-[#d6c3a8] bg-[#fffdf8] p-2 shadow-sm"><label class="sr-only" for="shop-search">Search products</label>
+     <div class="flex items-center gap-3 px-3">
+      <i data-lucide="search" class="h-6 w-6"></i><input id="shop-search" oninput="renderShop()" type="search" placeholder="Search coffee, syrups, cocoa and more" class="w-full bg-transparent py-4 text-xl outline-none">
+     </div>
+    </div>
+    <div class="mb-6 flex flex-wrap gap-3" id="filter-buttons"></div>
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+     <p id="results-count" class="text-lg font-semibold" aria-live="polite"></p><label class="font-semibold" for="sort-select">Sort products <select id="sort-select" onchange="renderShop()" class="ml-2 rounded-xl border-2 border-[#bfa98b] bg-white px-3 py-2"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="rating">Highest rated</option></select></label>
+    </div>
+    <div id="shop-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    <p id="shop-empty" class="hidden rounded-3xl bg-[#f1e7d8] p-10 text-center text-xl">We couldn’t find that just now. Try a different word or category.</p>
+   </section>
+   <section id="product" class="view mx-auto max-w-7xl px-4 py-10 md:px-8"><button onclick="showView('shop')" class="mb-7 rounded-xl px-2 py-2 text-lg font-bold underline">← Back to shop</button>
+    <div class="grid gap-10 md:grid-cols-2">
+     <div>
+      <img data-template-id="detail-product-image" loading="lazy" class="canva-image h-[430px] w-full rounded-[2rem] object-cover shadow-lg">
+      <div class="mt-4 flex gap-3">
+       <button class="h-16 w-16 rounded-xl border-4 border-[#a95d34] bg-[#f1e7d8]" aria-label="Selected product image">☕</button><span class="self-center text-lg">A closer look at your coffee.</span>
+      </div>
+     </div>
+     <div>
+      <p id="detail-category" class="font-bold uppercase tracking-[.14em] text-[#a95d34]"></p>
+      <h1 id="detail-name" class="serif mt-2 text-5xl font-bold"></h1>
+      <p id="detail-rating" class="mt-3 text-xl text-[#a95d34]"></p>
+      <p id="detail-price" class="my-4 text-3xl font-bold"></p>
+      <p id="detail-description" class="text-xl leading-relaxed"></p>
+      <dl class="my-6 grid grid-cols-2 gap-3 rounded-2xl bg-[#f1e7d8] p-5 text-lg">
+       <div>
+        <dt class="font-bold">
+         Origin
+        </dt>
+        <dd id="detail-origin"></dd>
+       </div>
+       <div>
+        <dt class="font-bold">
+         Roast level
+        </dt>
+        <dd id="detail-roast"></dd>
+       </div>
+       <div class="col-span-2">
+        <dt class="font-bold">
+         Flavor notes
+        </dt>
+        <dd id="detail-notes"></dd>
+       </div>
+      </dl>
+      <fieldset>
+       <legend class="mb-3 text-lg font-bold">Choose a size</legend>
+       <div class="flex gap-3">
+        <button onclick="selectSize(this)" class="size-option rounded-xl border-2 border-[#3b2419] px-5 py-3 font-bold">250g</button><button onclick="selectSize(this)" class="size-option rounded-xl border-2 border-[#bfa98b] px-5 py-3 font-bold">500g</button>
+       </div>
+      </fieldset>
+      <div class="mt-6 flex items-end gap-4">
+       <div>
+        <label class="mb-2 block text-lg font-bold" for="detail-quantity">Quantity</label>
+        <div class="flex rounded-xl border-2 border-[#bfa98b] bg-white">
+         <button onclick="changeDetailQty(-1)" class="px-4 py-3 text-xl" aria-label="Decrease quantity">−</button><input id="detail-quantity" value="1" readonly class="w-12 text-center text-xl font-bold"><button onclick="changeDetailQty(1)" class="px-4 py-3 text-xl" aria-label="Increase quantity">+</button>
+        </div>
+       </div><button onclick="addDetailToCart()" class="flex-1 rounded-2xl bg-[#a95d34] px-6 py-4 text-xl font-bold text-white">Add to Cart</button>
+      </div>
+     </div>
+    </div>
+    <div class="mt-14 grid gap-7 md:grid-cols-2">
+     <article class="rounded-3xl bg-[#fffdf8] p-7">
+      <h2 class="serif text-3xl font-bold">Brewing suggestions</h2>
+      <p class="mt-3 text-lg leading-relaxed">Use freshly drawn water just off the boil. Start with two tablespoons per cup, then adjust slowly until it tastes just right to you.</p>
+     </article>
+     <article class="rounded-3xl bg-[#fffdf8] p-7">
+      <h2 class="serif text-3xl font-bold">You might also enjoy…</h2>
+      <div id="related-grid" class="mt-4 grid gap-3 sm:grid-cols-2"></div>
+     </article>
+    </div>
+   </section>
+   <section id="finder" class="view mx-auto max-w-4xl px-4 py-12 md:px-8">
+    <div id="finder-questions">
+     <p class="font-bold uppercase tracking-[.14em] text-[#a95d34]">Your friendly guide</p>
+     <h1 data-template-id="quiz-title" class="canva-text serif mt-2 text-5xl font-bold"></h1>
+     <p class="mt-4 text-xl">Two easy questions, then we’ll make a delicious suggestion.</p>
+     <div id="question-one" class="mt-10">
+      <h2 class="serif text-3xl font-bold">How do you like your coffee?</h2>
+      <div class="mt-5 grid gap-4 sm:grid-cols-2">
+       <button class="quiz-choice rounded-2xl border-2 border-[#d6c3a8] bg-[#fffdf8] p-6 text-left text-xl font-bold" onclick="pickTaste(this,'Smooth &amp; Mild')">☕ Smooth &amp; Mild</button><button class="quiz-choice rounded-2xl border-2 border-[#d6c3a8] bg-[#fffdf8] p-6 text-left text-xl font-bold" onclick="pickTaste(this,'Rich &amp; Strong')">☕ Rich &amp; Strong</button><button class="quiz-choice rounded-2xl border-2 border-[#d6c3a8] bg-[#fffdf8] p-6 text-left text-xl font-bold" onclick="pickTaste(this,'Sweet &amp; Chocolatey')">🍫 Sweet &amp; Chocolatey</button><button class="quiz-choice rounded-2xl border-2 border-[#d6c3a8] bg-[#fffdf8] p-6 text-left text-xl font-bold" onclick="pickTaste(this,'Fruity &amp; Bright')">🍊 Fruity &amp; Bright</button>
+      </div>
+     </div>
+     <div id="question-two" class="mt-10 hidden">
+      <h2 class="serif text-3xl font-bold">How do you brew your coffee?</h2>
+      <div class="mt-5 grid gap-3 sm:grid-cols-2">
+       <button class="quiz-choice rounded-2xl border-2 border-[#d6c3a8] bg-[#fffdf8] p-5 text-left text-xl font-bold" onclick="pickBrew(this)">Filter</button><button class="quiz-choice rounded-2xl border-2 border-[#d6c3a8] bg-[#fffdf8] p-5 text-left text-xl font-bold" onclick="pickBrew(this)">French Press</button><button class="quiz-choice rounded-2xl border-2 border-[#d6c3a8] bg-[#fffdf8] p-5 text-left text-xl font-bold" onclick="pickBrew(this)">Espresso</button><button class="quiz-choice rounded-2xl border-2 border-[#d6c3a8] bg-[#fffdf8] p-5 text-left text-xl font-bold" onclick="pickBrew(this)">Moka Pot</button><button class="quiz-choice rounded-2xl border-2 border-[#d6c3a8] bg-[#fffdf8] p-5 text-left text-xl font-bold" onclick="pickBrew(this)">I'm not sure</button>
+      </div>
+     </div>
+    </div>
+    <div id="finder-result" class="hidden rounded-[2rem] bg-[#eee2d0] p-8 text-center md:p-12">
+     <p class="font-bold uppercase tracking-[.14em] text-[#a95d34]">Your coffee match</p>
+     <h2 data-template-id="recommendation-title" class="canva-text serif mt-3 text-5xl font-bold"></h2>
+     <div id="recommendation-card" class="mx-auto mt-7 max-w-sm"></div><button onclick="resetFinder()" class="mt-7 rounded-xl border-2 border-[#3b2419] px-6 py-3 text-lg font-bold">Try again</button>
+    </div>
+   </section>
+   <section id="cart" class="view mx-auto max-w-7xl px-4 py-10 md:px-8">
+    <h1 data-template-id="cart-title" class="canva-text serif text-5xl font-bold"></h1>
+    <div class="mt-8 grid gap-8 lg:grid-cols-[1.5fr_.75fr]">
+     <div id="cart-list" class="space-y-4"></div>
+     <aside data-template-id="summary-panel" class="canva-panel h-fit rounded-3xl p-7 shadow-sm">
+      <h2 data-template-id="summary-title" class="canva-text serif text-3xl font-bold"></h2>
+      <div class="my-6 space-y-3 border-y border-[#d6c3a8] py-5 text-lg">
+       <p class="flex justify-between"><span>Subtotal</span><strong id="subtotal">₹0</strong></p>
+       <p class="flex justify-between"><span>Delivery</span><strong id="delivery">₹0</strong></p>
+       <p class="flex justify-between text-2xl"><span>Total</span><strong id="total">₹0</strong></p>
+      </div><button data-template-id="checkout-button" onclick="showToast('Checkout is a demo — no payment details are collected.')" class="canva-button w-full rounded-2xl py-4 text-xl font-bold"></button>
+      <p class="mt-4 text-center font-semibold text-[#66755a]">Demo storefront · Safe, simple browsing</p>
+     </aside>
+    </div>
+    <div id="cart-empty" class="hidden rounded-3xl bg-[#f1e7d8] p-10 text-center">
+     <p class="text-2xl font-bold">Your cart is ready for something lovely.</p><button onclick="showView('shop')" class="mt-5 rounded-xl bg-[#a95d34] px-6 py-3 text-lg font-bold text-white">Continue Shopping</button>
+    </div>
+   </section>
+   <section id="about" class="view">
+    <section class="mx-auto grid max-w-7xl gap-8 px-4 py-12 md:grid-cols-2 md:px-8">
+     <div>
+      <p class="font-bold uppercase tracking-[.14em] text-[#a95d34]">A neighborly cup</p>
+      <h1 data-template-id="about-title" class="canva-text serif mt-3 text-5xl font-bold md:text-6xl"></h1>
+      <p data-template-id="about-copy" class="canva-text mt-6 text-xl leading-relaxed"></p>
+     </div><img data-template-id="about-image" loading="lazy" class="canva-image h-[390px] w-full rounded-[2rem] object-cover">
+    </section>
+    <section class="bg-[#eee2d0] py-14">
+     <div class="mx-auto grid max-w-7xl gap-6 px-4 md:grid-cols-3 md:px-8">
+      <article>
+       <h2 class="serif text-3xl font-bold">Where our coffee comes from</h2>
+       <p class="mt-3 text-lg leading-relaxed">We work with thoughtful growers and roasters who care for their land, their people, and every harvest.</p>
+      </article>
+      <article>
+       <h2 class="serif text-3xl font-bold">How we select our beans</h2>
+       <p class="mt-3 text-lg leading-relaxed">We taste for sweetness, balance and comfort — never just complexity for its own sake.</p>
+      </article>
+      <article>
+       <h2 class="serif text-3xl font-bold">Our values</h2>
+       <p class="mt-3 text-lg leading-relaxed">Kind service, clear information, beautiful everyday rituals, and coffee everyone can enjoy.</p>
+      </article>
+     </div>
+    </section>
+   </section>
+  </main>
+  <footer data-template-id="site-footer" class="canva-footer bg-[#3b2419] px-4 py-10 text-[#fff8ed]">
+   <div class="mx-auto flex max-w-7xl flex-col justify-between gap-5 md:flex-row">
+    <div>
+     <p class="serif text-2xl font-bold">Hearth &amp; Bean</p>
+     <p class="mt-2 text-lg">Small comforts, thoughtfully brewed.</p>
+    </div>
+    <p class="text-lg">© 2026 Hearth &amp; Bean Coffee</p>
+   </div>
+  </footer>
+  <div id="toast" role="status" aria-live="polite" class="toast fixed bottom-5 left-1/2 z-50 -translate-x-1/2 rounded-2xl bg-[#3b2419] px-6 py-4 text-center text-lg font-bold text-white shadow-xl"></div>
+  <template id="product-template">
+   <article class="product-card overflow-hidden rounded-3xl border border-[#e1d1bc] bg-[#fffdf8]">
+    <img class="h-52 w-full object-cover" loading="lazy">
+    <div class="p-5">
+     <p class="product-roast text-sm font-bold uppercase tracking-wide text-[#66755a]"></p>
+     <h3 class="product-name serif mt-1 text-2xl font-bold"></h3>
+     <p class="product-description mt-2 min-h-[52px] text-lg leading-snug"></p>
+     <div class="mt-4 flex items-center justify-between">
+      <span class="product-rating font-bold text-[#a95d34]"></span><span class="product-price text-xl font-bold"></span>
+     </div>
+     <div class="mt-5 grid grid-cols-[1fr_auto] gap-2">
+      <button class="detail-btn rounded-xl border-2 border-[#3b2419] px-3 py-3 font-bold">View Details</button><button class="add-btn rounded-xl bg-[#a95d34] px-4 py-3 font-bold text-white">Add to Cart</button>
+     </div>
+    </div>
+   </article>
+  </template>
+  <script src="/_sdk/c6bcadf20ce5820f.editing_sdk.js" integrity="sha512-LVukVCTKnKSxy98w+wCVzDAxVXBG2vy32XblXlmJD9CPFnF2/FVc75CFngl41IdXcX3sVHJc9olw64zrPM/FIA=="></script>
+  <script>
+    const imageUrls = {
+      beans:"https://images.pexels.com/photos/894695/pexels-photo-894695.jpeg?auto=compress&cs=tinysrgb&w=800",
+      ground:"https://images.pexels.com/photos/585750/pexels-photo-585750.jpeg?auto=compress&cs=tinysrgb&w=800",
+      origin:"https://images.pexels.com/photos/35994486/pexels-photo-35994486.jpeg?auto=compress&cs=tinysrgb&w=800",
+      organic:"https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=800",
+      syrup:"https://images.pexels.com/photos/34164443/pexels-photo-34164443.jpeg?auto=compress&cs=tinysrgb&w=800",
+      brew:"https://images.pexels.com/photos/9324972/pexels-photo-9324972.jpeg?auto=compress&cs=tinysrgb&w=800"
+    };
+    const products = [
+      {id:1,name:"Sunday House Blend",description:"Velvety, nutty and wonderfully easy to love.",roast:"Medium roast",rating:4.9,price:590,category:"Coffee Beans",origin:"Brazil & Colombia",notes:"Hazelnut, brown sugar, cocoa",image:"beans"},
+      {id:2,name:"Golden Hour Ground Coffee",description:"A mellow cup with soft caramel warmth.",roast:"Medium-light roast",rating:4.8,price:540,category:"Ground Coffee",origin:"Colombia",notes:"Caramel, biscuit, citrus",image:"ground"},
+      {id:3,name:"Ethiopia Bright Morning",description:"Joyful single origin with a clean, floral finish.",roast:"Light roast",rating:4.9,price:680,category:"Single Origin",origin:"Ethiopia",notes:"Peach, jasmine, honey",image:"origin"},
+      {id:4,name:"Garden Organic Blend",description:"Smooth organic coffee for slow, sunny mornings.",roast:"Medium roast",rating:4.7,price:640,category:"Organic",origin:"Peru",notes:"Milk chocolate, almond, pear",image:"organic"},
+      {id:5,name:"Salted Caramel Syrup",description:"A gentle buttery sweetness for coffee at home.",roast:"Coffee companion",rating:4.8,price:390,category:"Condiments",origin:"Small-batch kitchen",notes:"Caramel, vanilla, sea salt",image:"syrup"},
+      {id:6,name:"Pour-Over Starter Set",description:"A simple, beautiful beginning to slower brewing.",roast:"Brewing essential",rating:4.9,price:1290,category:"Brewing Essentials",origin:"Hand-finished ceramic",notes:"Dripper, server, filters",image:"brew"}
+    ];
+    const categories=["All","Coffee Beans","Ground Coffee","Single Origin","Organic","Condiments","Brewing Essentials","Gifts"];
+    let cart=[], activeCategory="All", currentProduct=products[0], finderTaste="";
+    function inr(v){ return "₹"+v.toLocaleString("en-IN"); }
+    function showView(id){ document.querySelectorAll(".view").forEach(v=>v.classList.remove("active")); document.getElementById(id).classList.add("active"); document.querySelectorAll(".navlink").forEach(b=>b.classList.toggle("active",b.dataset.nav===id)); window.scrollTo({top:0,behavior:"smooth"}); if(id==="cart")renderCart(); }
+    function toggleMenu(){ const m=document.getElementById("mobile-menu"), b=document.getElementById("menu-button");m.classList.toggle("open");m.classList.toggle("hidden");b.setAttribute("aria-expanded",m.classList.contains("open")); }
+    function productCard(p){ const n=document.getElementById("product-template").content.cloneNode(true); n.querySelector("img").src=imageUrls[p.image];n.querySelector("img").alt=p.name;n.querySelector(".product-roast").textContent=p.roast;n.querySelector(".product-name").textContent=p.name;n.querySelector(".product-description").textContent=p.description;n.querySelector(".product-rating").textContent="★★★★★ "+p.rating;n.querySelector(".product-price").textContent=inr(p.price);n.querySelector(".detail-btn").onclick=()=>openProduct(p.id);n.querySelector(".add-btn").onclick=()=>addToCart(p);return n; }
+    function mountProducts(id,items){const root=document.getElementById(id);root.replaceChildren();items.forEach(p=>root.appendChild(productCard(p)));}
+    function renderHome(){mountProducts("featured-grid",products.slice(0,4));mountProducts("bestseller-grid",[products[2],products[0],products[4]]);const cg=document.getElementById("category-grid");cg.replaceChildren();["Whole Beans","Ground Coffee","Single Origin","Organic Coffee","Syrups & Sweeteners","Creamers","Chocolate & Cocoa","Brewing Essentials","Gift Boxes"].forEach((c,i)=>{let b=document.createElement("button");b.className="rounded-2xl border-2 border-[#dccbb3] bg-[#fffdf8] p-5 text-left text-lg font-bold hover:border-[#a95d34]";b.textContent=["☕ ","🫖 ","🌍 ","🌿 ","🍯 ","🥛 ","🍫 ","🫗 ","🎁 "][i]+c;b.onclick=()=>{activeCategory=c.includes("Beans")?"Coffee Beans":c.includes("Ground")?"Ground Coffee":c.includes("Single")?"Single Origin":c.includes("Organic")?"Organic":c.includes("Brewing")?"Brewing Essentials":c.includes("Gift")?"Gifts":"Condiments";showView("shop");renderShop()};cg.appendChild(b)});}
+    function renderFilters(){const r=document.getElementById("filter-buttons");r.replaceChildren();categories.forEach(c=>{const b=document.createElement("button");b.className="rounded-full border-2 px-5 py-3 text-lg font-bold "+(c===activeCategory?"border-[#a95d34] bg-[#a95d34] text-white":"border-[#bfa98b] bg-[#fffdf8]");b.textContent=c;b.onclick=()=>{activeCategory=c;renderFilters();renderShop()};r.appendChild(b)});}
+    function renderShop(){renderFilters();let list=products.filter(p=>(activeCategory==="All"||p.category===activeCategory)&&(p.name+" "+p.description+" "+p.category).toLowerCase().includes(document.getElementById("shop-search").value.toLowerCase()));let sort=document.getElementById("sort-select").value;if(sort==="price-low")list.sort((a,b)=>a.price-b.price);if(sort==="rating")list.sort((a,b)=>b.rating-a.rating);document.getElementById("results-count").textContent=list.length+" lovely product"+(list.length===1?"":"s")+" found";document.getElementById("shop-empty").classList.toggle("hidden",!!list.length);mountProducts("shop-grid",list);}
+    function openProduct(id){currentProduct=products.find(p=>p.id===id);const p=currentProduct;document.querySelector("[data-template-id='detail-product-image']").src=imageUrls[p.image];document.getElementById("detail-category").textContent=p.category;document.getElementById("detail-name").textContent=p.name;document.getElementById("detail-rating").textContent="★★★★★ "+p.rating+" / 5";document.getElementById("detail-price").textContent=inr(p.price);document.getElementById("detail-description").textContent=p.description;document.getElementById("detail-origin").textContent=p.origin;document.getElementById("detail-roast").textContent=p.roast;document.getElementById("detail-notes").textContent=p.notes;document.getElementById("detail-quantity").value=1;mountProducts("related-grid",products.filter(x=>x.id!==p.id).slice(0,2));showView("product");}
+    function selectSize(el){document.querySelectorAll(".size-option").forEach(x=>x.className="size-option rounded-xl border-2 border-[#bfa98b] px-5 py-3 font-bold");el.className="size-option rounded-xl border-2 border-[#3b2419] bg-[#f1e7d8] px-5 py-3 font-bold";}
+    function changeDetailQty(n){let e=document.getElementById("detail-quantity");e.value=Math.max(1,+e.value+n);}
+    function addDetailToCart(){for(let i=0;i<+document.getElementById("detail-quantity").value;i++)addToCart(currentProduct,false);showToast(currentProduct.name+" added to your cart.");}
+    function addToCart(p,toast=true){let x=cart.find(x=>x.id===p.id);if(x)x.qty++;else cart.push({...p,qty:1});updateCartCount();if(toast)showToast(p.name+" added to your cart.");}
+    function updateCartCount(){document.getElementById("cart-count").textContent=cart.reduce((a,b)=>a+b.qty,0);}
+    function renderCart(){const root=document.getElementById("cart-list");root.replaceChildren();document.getElementById("cart-empty").classList.toggle("hidden",cart.length>0);cart.forEach(p=>{const a=document.createElement("article");a.className="flex flex-col gap-5 rounded-3xl border border-[#e1d1bc] bg-[#fffdf8] p-4 sm:flex-row";a.innerHTML=`<img src="${imageUrls[p.image]}" alt="${p.name}" class="h-32 w-full rounded-2xl object-cover sm:w-36"><div class="flex-1"><h2 class="serif text-2xl font-bold">${p.name}</h2><p class="mt-1 text-lg">Size: 250g</p><p class="mt-2 text-xl font-bold">${inr(p.price)}</p></div><div class="flex items-center gap-3"><button class="rounded-lg border-2 border-[#bfa98b] px-4 py-2 text-xl" aria-label="Decrease ${p.name} quantity" onclick="cartQty(${p.id},-1)">−</button><strong class="text-xl">${p.qty}</strong><button class="rounded-lg border-2 border-[#bfa98b] px-4 py-2 text-xl" aria-label="Increase ${p.name} quantity" onclick="cartQty(${p.id},1)">+</button><button class="ml-2 rounded-lg px-3 py-2 font-bold text-[#9c3e35] underline" onclick="removeCart(${p.id})">Remove</button></div>`;root.appendChild(a)});let sub=cart.reduce((s,p)=>s+p.price*p.qty,0),delivery=sub?99:0;document.getElementById("subtotal").textContent=inr(sub);document.getElementById("delivery").textContent=inr(delivery);document.getElementById("total").textContent=inr(sub+delivery);}
+    function cartQty(id,n){let p=cart.find(p=>p.id===id);p.qty+=n;if(p.qty<1)cart=cart.filter(p=>p.id!==id);updateCartCount();renderCart();}
+    function removeCart(id){cart=cart.filter(p=>p.id!==id);updateCartCount();renderCart();showToast("Removed from your cart.");}
+    function pickTaste(el,t){finderTaste=t;document.querySelectorAll("#question-one .quiz-choice").forEach(x=>x.classList.remove("selected"));el.classList.add("selected");document.getElementById("question-two").classList.remove("hidden");document.getElementById("question-two").scrollIntoView({behavior:"smooth",block:"center"});}
+    function pickBrew(el){document.querySelectorAll("#question-two .quiz-choice").forEach(x=>x.classList.remove("selected"));el.classList.add("selected");let p=finderTaste==="Sweet & Chocolatey"?products[0]:finderTaste==="Fruity & Bright"?products[2]:finderTaste==="Rich & Strong"?products[3]:products[1];document.getElementById("finder-questions").classList.add("hidden");document.getElementById("finder-result").classList.remove("hidden");mountProducts("recommendation-card",[p]);}
+    function resetFinder(){finderTaste="";document.querySelectorAll(".quiz-choice").forEach(x=>x.classList.remove("selected"));document.getElementById("question-two").classList.add("hidden");document.getElementById("finder-result").classList.add("hidden");document.getElementById("finder-questions").classList.remove("hidden");}
+    let toastTimer;function showToast(msg){let t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),3200);}
+    const dataHandler={onDataChanged(){}};async function initNewsletter(){const result=await window.dataSdk.init(dataHandler);if(!result.isOk)document.getElementById("newsletter-status").textContent="Newsletter sign-up is unavailable at the moment.";}
+    document.getElementById("newsletter-form").addEventListener("submit",async e=>{e.preventDefault();const email=document.getElementById("newsletter-email"),btn=document.getElementById("subscribe-button"),status=document.getElementById("newsletter-status");btn.disabled=true;btn.style.opacity=".65";status.textContent="Saving your subscription…";const result=await window.dataSdk.create({email:email.value.trim(),subscribed_at:new Date().toISOString()});btn.disabled=false;btn.style.opacity="1";if(result.isOk){email.value="";status.textContent="You’re on the list — welcome to the Hearth & Bean table.";showToast("Thank you for subscribing!")}else status.textContent="We couldn’t save that subscription. Please try again."});
+    document.addEventListener("DOMContentLoaded",()=>{lucide.createIcons();renderHome();renderShop();initNewsletter();});
+  </script>
+ </body>
+</html>
